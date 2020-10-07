@@ -1,0 +1,31 @@
+{
+  "name": "treering_time_bot",
+  "description": "Simple message broker to enable Slack to TreeRing Time communication using bot",
+  "env": {
+    "TR_CLIENT_ID": {
+        "description": "Consumer key of your TreeRing Time Connected App",
+        "value":""
+    },
+    "TR_CLIENT_SECRET": {
+        "description": "Consumer secret of your TreeRing Time Connected App",
+        "value":""
+    },
+    "TR_USER_NAME": {
+        "description": "Salesforce username for your integration user",
+        "value":""
+    },
+    "TR_PASSWORD": {
+        "description": "Salesforce password for your integration user",
+        "value":""
+    },
+    "TR_LOGIN_URL": {
+        "description": "TreeRing Time login URL",
+        "value":"https://login.TreeRing Time.com"
+    },
+    "SLACK_ACCOUNT_TOKEN": {
+        "description": "Slack token for the account slash command",
+        "value":"",
+        "required":false
+    },
+  }
+}

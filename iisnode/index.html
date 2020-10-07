@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"SLACKBOT-1660-stderr-1578375987685.txt","computername":"SLACKBOT","pid":1660,"type":"stderr","created":1578375987685},{"file":"SLACKBOT-1660-stdout-1578375987685.txt","computername":"SLACKBOT","pid":1660,"type":"stdout","created":1578375987685},{"file":"SLACKBOT-2760-stderr-1578372321353.txt","computername":"SLACKBOT","pid":2760,"type":"stderr","created":1578372321353},{"file":"SLACKBOT-2760-stdout-1578372321353.txt","computername":"SLACKBOT","pid":2760,"type":"stdout","created":1578372321353},{"file":"SLACKBOT-2904-stderr-1578272943217.txt","computername":"SLACKBOT","pid":2904,"type":"stderr","created":1578272943217},{"file":"SLACKBOT-2904-stdout-1578272943217.txt","computername":"SLACKBOT","pid":2904,"type":"stdout","created":1578272943217},{"file":"SLACKBOT-3512-stderr-1578392499952.txt","computername":"SLACKBOT","pid":3512,"type":"stderr","created":1578392499952},{"file":"SLACKBOT-3512-stdout-1578392499952.txt","computername":"SLACKBOT","pid":3512,"type":"stdout","created":1578392499952},{"file":"SLACKBOT-3716-stderr-1578218575139.txt","computername":"SLACKBOT","pid":3716,"type":"stderr","created":1578218575139},{"file":"SLACKBOT-3716-stdout-1578218575139.txt","computername":"SLACKBOT","pid":3716,"type":"stdout","created":1578218575139},{"file":"SLACKBOT-3884-stderr-1578314586348.txt","computername":"SLACKBOT","pid":3884,"type":"stderr","created":1578314586348},{"file":"SLACKBOT-3884-stdout-1578314586348.txt","computername":"SLACKBOT","pid":3884,"type":"stdout","created":1578314586348},{"file":"SLACKBOT-4664-stderr-1578361346964.txt","computername":"SLACKBOT","pid":4664,"type":"stderr","created":1578361346964},{"file":"SLACKBOT-4664-stdout-1578361346964.txt","computername":"SLACKBOT","pid":4664,"type":"stdout","created":1578361346964},{"file":"SLACKBOT-4844-stderr-1578399941730.txt","computername":"SLACKBOT","pid":4844,"type":"stderr","created":1578399941730},{"file":"SLACKBOT-4844-stdout-1578399941715.txt","computername":"SLACKBOT","pid":4844,"type":"stdout","created":1578399941715},{"file":"SLACKBOT-4852-stderr-1578279606794.txt","computername":"SLACKBOT","pid":4852,"type":"stderr","created":1578279606794},{"file":"SLACKBOT-4852-stdout-1578279606794.txt","computername":"SLACKBOT","pid":4852,"type":"stdout","created":1578279606794},{"file":"SLACKBOT-5376-stderr-1578303566910.txt","computername":"SLACKBOT","pid":5376,"type":"stderr","created":1578303566910},{"file":"SLACKBOT-5376-stdout-1578303566895.txt","computername":"SLACKBOT","pid":5376,"type":"stdout","created":1578303566895},{"file":"SLACKBOT-6000-stderr-1578192725426.txt","computername":"SLACKBOT","pid":6000,"type":"stderr","created":1578192725426},{"file":"SLACKBOT-6000-stdout-1578192725426.txt","computername":"SLACKBOT","pid":6000,"type":"stdout","created":1578192725426}];
+        var lastUpdated = 1578399942137;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

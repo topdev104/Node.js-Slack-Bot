@@ -1,0 +1,7 @@
+(node:4664) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+Error [NotFoundError]: Key not found in database [TNYMWNXB7]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:75:21
+Error [NotFoundError]: Key not found in database [TNYMWNXB7]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:75:21
