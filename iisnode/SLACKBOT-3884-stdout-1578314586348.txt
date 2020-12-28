@@ -1,0 +1,4 @@
+Listening for events on undefined
+Error [NotFoundError]: Key not found in database [U8LCR0132]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:75:21

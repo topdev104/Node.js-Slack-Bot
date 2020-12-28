@@ -1,0 +1,17 @@
+Listening for events on undefined
+{
+  ok: false,
+  error: 'channel_not_found',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}
+{
+  ok: false,
+  error: 'channel_not_found',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}

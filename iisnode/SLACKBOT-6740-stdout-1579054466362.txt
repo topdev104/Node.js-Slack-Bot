@@ -1,0 +1,48 @@
+Listening for events on undefined
+Error [NotFoundError]: Key not found in database [U06NL5JC9]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:76:23
+Error [NotFoundError]: Key not found in database [U06NJJBRC]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:76:23
+Error [NotFoundError]: Key not found in database [U06NJJBRC]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:76:23
+Error [NotFoundError]: Key not found in database [U06NJJBRC]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:76:23
+Error [NotFoundError]: Key not found in database [U06NJJBRC]
+    at C:\slack_bot\treering_time_bot\node_modules\levelup\lib\levelup.js:192:15
+    at C:\slack_bot\treering_time_bot\node_modules\encoding-down\index.js:76:23
+{
+  ok: false,
+  error: 'invalid_blocks_format',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}
+{
+  ok: false,
+  error: 'invalid_blocks_format',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}
+{
+  ok: false,
+  error: 'invalid_blocks_format',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}
+{
+  ok: false,
+  error: 'invalid_blocks_format',
+  response_metadata: {
+    scopes: [ 'identify', 'bot:basic' ],
+    acceptedScopes: [ 'chat:write:bot', 'post' ]
+  }
+}

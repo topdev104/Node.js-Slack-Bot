@@ -1,0 +1,93 @@
+const auth = require('./util/auth');
+const treering = require('../api/treering');
+const channel = require('./util/channel');
+const workspace = require('../models/workspace');
+
+const handle = (slackEvents, web) => {
+
+    slackEvents.on('app_home_opened', (event, body) => {
+
+        let workspaceId = body.team_id;
+        let channelId = event.channel;
+        let userId = event.user;
+
+        const initialMessage = "Preparing now for your work... Just a second.";
+        channel.sendMessage(web, channelId, initialMessage);
+
+        auth.checkWorkspace(web, workspaceId).then((serverInfo) => {
+
+            treering.getToken(workspaceId, serverInfo).then((tokenInfo) => {
+                let token = "bearer "+ tokenInfo;
+                workspace.addToken(workspaceId, token);
+
+                auth.checkConfig(web, workspaceId).then((config) => {
+
+                    auth.checkUser(userId).then((isSuccess) => {
+                        channel.sendBlockMessage(web, channelId, [
+                            {
+                                "type": "section",
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "Done! I am ready for your request. :ok_hand:"
+                                }
+                            },
+                            {
+                                "type": "divider"
+                            },
+                        ]);
+                    }).catch ((error) => {
+                        console.log(error);
+                        showLoginMessage(web, channelId);
+                    });
+
+                }).catch((error) => {
+                    console.log(error);
+                    channel.sendMessage(web, channelId, "We can't get your workspace configuration data.");
+                });
+
+            }).catch((error) => {
+                console.log(error);
+                channel.sendMessage(web, channelId, "We cant' connect to your treering time server. Please check your network connection or server status.");
+            });
+
+        }).catch((error) => {
+            console.log(error);
+            channel.sendMessage(web, channelId, "Your workspace is not registered to Treering Time. Please contact TreeRing Time Serivce.");
+        });
+
+    });
+};
+
+function showLoginMessage(web, channelId) {
+    const message = [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*Please login to get started.*"
+            }
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "action_id": "login_clicked",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": "Login"
+                    },
+                    "style": "primary"
+                }
+            ]
+        }
+    ];
+
+    channel.sendBlockMessage(web, channelId, message);
+}
+
+module.exports = {handle, showLoginMessage};

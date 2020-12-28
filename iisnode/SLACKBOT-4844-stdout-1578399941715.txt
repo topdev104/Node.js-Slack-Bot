@@ -1,0 +1,5 @@
+Listening for events on undefined
+{ ok: false, error: 'invalid_auth', response_metadata: {} }
+{ ok: false, error: 'invalid_auth', response_metadata: {} }
+{ ok: false, error: 'invalid_auth', response_metadata: {} }
+{ ok: false, error: 'invalid_auth', response_metadata: {} }
